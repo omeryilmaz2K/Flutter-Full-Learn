@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_full_learn/101/container_learn_view.dart';
 import 'package:flutter_full_learn/101/sizedbox_learn_view.dart';
 import 'package:flutter_full_learn/101/text_learn_view.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SizedboxLearnView(title: "Sizedbox Çalışması"),
+      home: ContainerLearnView(title: "Container Çalışması"),
     );
   }
 }
