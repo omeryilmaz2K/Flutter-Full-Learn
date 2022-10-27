@@ -6,6 +6,7 @@ import 'package:flutter_full_learn/101/container_learn_view.dart';
 import 'package:flutter_full_learn/101/icon_learn_view.dart';
 import 'package:flutter_full_learn/101/scaffold_learn_view.dart';
 import 'package:flutter_full_learn/101/sizedbox_learn_view.dart';
+import 'package:flutter_full_learn/101/stateless_learn_view.dart';
 import 'package:flutter_full_learn/101/text_learn_view.dart';
 
 import '101/color_learn_view.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         toolbarTextStyle: TextStyle(color: Colors.blue),
         systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
       )),
-      home: ColorLearnView(),
+      home: StatelessLearnView(),
     );
   }
 }
