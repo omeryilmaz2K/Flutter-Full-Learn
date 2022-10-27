@@ -8,6 +8,8 @@ import 'package:flutter_full_learn/101/scaffold_learn_view.dart';
 import 'package:flutter_full_learn/101/sizedbox_learn_view.dart';
 import 'package:flutter_full_learn/101/text_learn_view.dart';
 
+import '101/color_learn_view.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -18,8 +20,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Temadan okuma -> App Bar
+      // Temadan okuma
       theme: ThemeData.dark().copyWith(
+        errorColor: ColorItems.red,
           appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         centerTitle: true,
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
         toolbarTextStyle: TextStyle(color: Colors.blue),
         systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
       )),
-      home: IconLearnView(),
+      home: ColorLearnView(),
     );
   }
 }
