@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_full_learn/101/appbar_learn_view.dart';
 import 'package:flutter_full_learn/101/button_learn_view.dart';
 import 'package:flutter_full_learn/101/container_learn_view.dart';
 import 'package:flutter_full_learn/101/scaffold_learn_view.dart';
@@ -15,7 +17,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ButtonLearnView(title: "Button Çalışması"),
+      theme: ThemeData.dark().copyWith(
+          appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.red,
+        centerTitle: true,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.red),
+        toolbarTextStyle: TextStyle(color: Colors.blue),
+        systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
+      )),
+      home: AppbarLearnView(),
     );
   }
 }
