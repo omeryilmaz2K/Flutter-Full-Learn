@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_full_learn/101/listtile_learn_view.dart';
+import 'package:flutter_full_learn/101/row_column_learn_view.dart';
 import '101/color_learn_view.dart';
 
 void main() {
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             toolbarTextStyle: TextStyle(color: Colors.blue),
             systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
           )),
-      home: const ListtileLearnView(),
+      home: const RowColumnLearnView(),
     );
   }
 }
