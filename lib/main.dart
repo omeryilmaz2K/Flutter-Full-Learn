@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_full_learn/101/card_learn_view.dart';
-
 import '101/color_learn_view.dart';
+import '101/image_learn_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,17 +15,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Temadan okuma
       theme: ThemeData.dark().copyWith(
-        cardTheme: CardTheme(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
-        errorColor: ColorItems.red,
+          cardTheme: CardTheme(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20))),
+          errorColor: ColorItems.red,
           appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        elevation: 0,
-        iconTheme: IconThemeData(color: Colors.red),
-        toolbarTextStyle: TextStyle(color: Colors.blue),
-        systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
-      )),
-      home: const CardLearnView(),
+            backgroundColor: Colors.transparent,
+            centerTitle: true,
+            elevation: 0,
+            iconTheme: IconThemeData(color: Colors.red),
+            toolbarTextStyle: TextStyle(color: Colors.blue),
+            systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
+          )),
+      home:  const ImageLearnView(),
     );
   }
 }
