@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_full_learn/101/customwidget_learn_view.dart';
+import 'package:flutter_full_learn/101/indicator_learn_view.dart';
 import '101/color_learn_view.dart';
 
 void main() {
@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Temadan okuma
       theme: ThemeData.dark().copyWith(
+        progressIndicatorTheme: const ProgressIndicatorThemeData(color: Colors.white),
           cardTheme: CardTheme(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20))),
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
             toolbarTextStyle: TextStyle(color: Colors.blue),
             systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
           )),
-      home: const CustomwidgetLearnView(),
+      home: const IndicatorLearnView(),
     );
   }
 }
