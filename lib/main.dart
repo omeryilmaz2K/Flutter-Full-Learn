@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '101/color_learn_view.dart';
 import '101/textfield_learn_view.dart';
+import 'demos/demo_colorful_app/demo_colorful_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
             toolbarTextStyle: TextStyle(color: Colors.blue),
             systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
           )),
-      home: const TextfieldLearnView(),
+      home: const DemoColorfulApp(),
     );
   }
 }
