@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_full_learn/demos/demo_colorful_app/demo_102_app.dart';
+import 'package:flutter_full_learn/demos/demo_listview_app/demo_listview_app.dart';
 import '101/color_learn_view.dart';
-import '101/listview_learn_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
             toolbarTextStyle: TextStyle(color: Colors.blue),
             systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
           )),
-      home: const ListviewLearnView(),
+      home: const DemoListviewApp(),
     );
   }
 }
