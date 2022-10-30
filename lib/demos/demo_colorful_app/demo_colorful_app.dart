@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DemoColorfulApp extends StatefulWidget {
-  const DemoColorfulApp({super.key});
+  const DemoColorfulApp({super.key, this.initalColor});
+  final Color? initalColor;
 
   @override
   State<DemoColorfulApp> createState() => _DemoColorfulAppState();
@@ -10,8 +11,24 @@ class DemoColorfulApp extends StatefulWidget {
 enum _BackgroundColors { blue, green, red }
 
 class _DemoColorfulAppState extends State<DemoColorfulApp> {
-  Color _backgroundColor = Colors.transparent;
+  Color? _backgroundColor;
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _backgroundColor = widget.initalColor ?? Colors.transparent;
+  }
+
+  @override
+  void didUpdateWidget(covariant DemoColorfulApp oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+    if (widget.initalColor != _backgroundColor && widget.initalColor != null) {
+      _changeBacgroundColor(widget.initalColor!);
+    }
+  }
 
   final boxDecoration = const BoxDecoration(
       boxShadow: [BoxShadow(color: Colors.black, blurRadius: 10)]);
@@ -40,8 +57,6 @@ class _DemoColorfulAppState extends State<DemoColorfulApp> {
         child: BottomNavigationBar(
             unselectedItemColor: Colors.white,
             currentIndex: _currentIndex,
-            selectedItemColor: _backgroundColor,
-            showUnselectedLabels: true,
             onTap: _changeBackground,
             items: const [
               BottomNavigationBarItem(
