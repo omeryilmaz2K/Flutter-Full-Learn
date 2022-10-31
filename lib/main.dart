@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '101/color_learn_view.dart';
-import '101/navigation_larn_view.dart';
+import '202/tab_learn_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Temadan okuma
       theme: ThemeData.dark().copyWith(
+        bottomAppBarTheme: const BottomAppBarTheme(shape: CircularNotchedRectangle()),
+        tabBarTheme: const TabBarTheme(
+          labelColor: Colors.cyanAccent,
+          unselectedLabelColor: Colors.white
+        ),
         inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder()
         ),
@@ -32,7 +37,7 @@ class MyApp extends StatelessWidget {
             toolbarTextStyle: TextStyle(color: Colors.blue),
             systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
           )),
-      home: const NavigationLearnView(),
+      home: const TabLearnView(),
     );
   }
 }
