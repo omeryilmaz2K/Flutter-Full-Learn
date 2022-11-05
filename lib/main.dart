@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_full_learn/202/theme/dark_theme.dart';
-import '202/size_enum_learn_view.dart';
+import '202/theme_learn_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       //       toolbarTextStyle: TextStyle(color: Colors.blue),
       //       systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
       //     )),
-      home: const SizeEnumLearnView(),
+      home: const ThemeLearnView(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_full_learn/202/password_textfield_view.dart';
 
 class ThemeLearnView extends StatefulWidget {
   const ThemeLearnView({ Key? key }) : super(key: key);
@@ -16,7 +17,7 @@ class _ThemeLearnViewState extends State<ThemeLearnView> {
       appBar: AppBar(
         title: Text(_title),
       ),
-      body: Center(child: Text('data', style: Theme.of(context).textTheme.subtitle1,)),
+      body: const PasswordTextfieldView(),
     );
   }
 }
