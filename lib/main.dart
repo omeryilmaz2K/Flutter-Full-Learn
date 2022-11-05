@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '202/service/comments_learn_view.dart';
-import '202/service/service_get_learn_view.dart';
+import 'package:flutter_full_learn/202/theme/dark_theme.dart';
+import '202/package_learn_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: DarkTheme().darkTheme,
       // Temadan okuma
       // theme: ThemeData.dark().copyWith(
       //   bottomAppBarTheme: const BottomAppBarTheme(shape: CircularNotchedRectangle()),
@@ -36,10 +37,7 @@ class MyApp extends StatelessWidget {
       //       toolbarTextStyle: TextStyle(color: Colors.blue),
       //       systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
       //     )),
-      theme: ThemeData.dark().copyWith(
-        appBarTheme: const AppBarTheme(centerTitle: true)
-      ),
-      home:  const ServiceGetLearnView(),
+      home: const PackageLearnView(),
     );
   }
 }
