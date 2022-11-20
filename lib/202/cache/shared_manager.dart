@@ -7,19 +7,25 @@ class SharedManager {
     preferences = await SharedPreferences.getInstance();
   }
 
-  Future<void> save(SharedKeys key, String value) async {
+  Future<void> saveString(SharedKeys key, String value) async {
     await preferences?.setString(key.name, value);
+  }
+
+  Future<void> saveStringList(SharedKeys key, List<String> valueList) async {
+    await preferences?.setStringList(key.name, valueList);
   }
 
   Future<bool?> remove(SharedKeys key) async {
     return await preferences?.remove(key.name);
   }
 
-  String? get(SharedKeys key) {
+  String? getString(SharedKeys key) {
     return preferences?.getString(key.name);
+  }
+  
+  List<String>? getStringList(SharedKeys key) {
+    return preferences?.getStringList(key.name);
   }
 }
 
-enum SharedKeys {
-  title
-}
+enum SharedKeys { title, users }

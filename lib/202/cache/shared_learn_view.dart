@@ -24,7 +24,7 @@ class _SharedLearnViewState extends LoadingStateful<SharedLearnView> {
   }
 
   void getDefaultValue() {
-    _onChangeValue(sharedManager.get(SharedKeys.title) ?? '');
+    _onChangeValue(sharedManager.getString(SharedKeys.title) ?? '');
   }
 
   String _currentValue = '';
@@ -41,13 +41,7 @@ class _SharedLearnViewState extends LoadingStateful<SharedLearnView> {
     return Scaffold(
         appBar: AppBar(
           title: Text(_currentValue),
-          actions: [
-            Center(
-              child: isLoading
-                  ? const CircularProgressIndicator()
-                  : const SizedBox.shrink(),
-            )
-          ],
+          actions: [_loading()],
         ),
         body: Column(
           children: [
@@ -55,30 +49,46 @@ class _SharedLearnViewState extends LoadingStateful<SharedLearnView> {
               onChanged: (value) {
                 _onChangeValue(value);
               },
-            )
+            ),
           ],
         ),
         floatingActionButton: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            FloatingActionButton(
-              onPressed: () async {
-                changeLoading();
-                await sharedManager.remove(SharedKeys.title);
-                changeLoading();
-              },
-              child: const Icon(Icons.delete_outline),
-            ),
-            FloatingActionButton(
-              onPressed: () async {
-                changeLoading();
-                await sharedManager.save(SharedKeys.title, _currentValue);
-                changeLoading();
-              },
-              child: const Icon(Icons.save_as_outlined),
-            ),
+            _fabRemove(),
+            _fabSave(),
           ],
         ));
+  }
+
+  FloatingActionButton _fabSave() {
+    return FloatingActionButton(
+      onPressed: () async {
+        changeLoading();
+        await sharedManager.saveString(SharedKeys.title, _currentValue);
+        changeLoading();
+      },
+      child: const Icon(Icons.save_as_outlined),
+    );
+  }
+
+  FloatingActionButton _fabRemove() {
+    return FloatingActionButton(
+      onPressed: () async {
+        changeLoading();
+        await sharedManager.remove(SharedKeys.title);
+        changeLoading();
+      },
+      child: const Icon(Icons.delete_outline),
+    );
+  }
+
+  Center _loading() {
+    return Center(
+      child: isLoading
+          ? const CircularProgressIndicator()
+          : const SizedBox.shrink(),
+    );
   }
 }
 
