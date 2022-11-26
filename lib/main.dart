@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_learn/202/dialog_learn_view.dart';
 import 'package:flutter_full_learn/202/theme/dark_theme.dart';
+import 'package:flutter_full_learn/303/call_back_learn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       //       toolbarTextStyle: TextStyle(color: Colors.blue),
       //       systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
       //     )),
-      home: const DialogLearnView(),
+      home: const CallBackLearn(),
     );
   }
 }
