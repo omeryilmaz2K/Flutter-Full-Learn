@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_learn/202/theme/dark_theme.dart';
-import 'package:flutter_full_learn/303/tabbar_advance.dart';
+import 'package:flutter_full_learn/303/reqres_resource/core/global/resource_context.dart';
+import 'package:flutter_full_learn/303/reqres_resource/core/global/theme_notifier.dart';
+import 'package:flutter_full_learn/303/reqres_resource/view/reqres_view.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    Provider(create: (_) => ResourceContext(),),
+    ChangeNotifierProvider<ThemeNotifier>(create: (context) => ThemeNotifier(),)
+  ],
+  builder: (context, child) => const MyApp(),));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: DarkTheme().darkTheme,
+      theme: context.watch<ThemeNotifier>().currentTheme,
       // Temadan okuma
       // theme: ThemeData.dark().copyWith(
       //   bottomAppBarTheme: const BottomAppBarTheme(shape: CircularNotchedRectangle()),
@@ -37,7 +43,7 @@ class MyApp extends StatelessWidget {
       //       toolbarTextStyle: TextStyle(color: Colors.blue),
       //       systemOverlayStyle: SystemUiOverlayStyle.light, // Status Bar
       //     )),
-      home: const TabbarAdvance(),
+      home: const ReqresView(),
     );
   }
 }
