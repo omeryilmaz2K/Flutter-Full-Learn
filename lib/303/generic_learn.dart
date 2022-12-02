@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class UserManagement<T extends AdminUser> {
   final T admin;
   final List<User> users;
@@ -35,12 +37,22 @@ class UserManagement<T extends AdminUser> {
   }
 }
 
-class User {
+class User extends Equatable {
   const User(this.id, this.name, this.money);
 
   final int id;
   final String name;
   final int money;
+
+  bool findUserName(String name) {
+    return this.name == name;
+  }
+
+  @override
+  String toString() => 'User(id: $id, name: $name, money: $money';
+  
+  @override
+  List<Object?> get props => [id];
 }
 
 class AdminUser extends User {
